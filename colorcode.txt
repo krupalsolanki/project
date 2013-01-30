@@ -1,0 +1,15 @@
+98AFC7
+
+start_session();
+
+
+        if(isset($_SESSION["valid_user"]))
+        {
+            echo($_SESSION["valid_user"]." " ); 
+             //echo("<a href=logout.php>Logout</a>"); 
+
+        }
+        else
+        {
+            //echo("<a href = login.php>Sign In</a>");
+        }
