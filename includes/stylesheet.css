@@ -8,20 +8,50 @@
 	
 .ovr:hover {color:#6565a8;}
 
-.ex2:hover {color:#B93B8F; font-size:103%; }
+.ex2:hover {color:#000000 ; font-size:105%; }
 
+.tabs {
+	background-color:#78c7c7;
+	margin-top:0px;
+	margin-bottom:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
+}
 .ex2{
 	color: #ffffff;
 	margin-left: 30px;
 	text-decoration: none;
+}
+
+
+.options {
+	background-color:#ffffff;
+	float:left;
+	margin-left:20px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
+	border-radius: 5px 5px 5px 5px ;
+	padding: 20px;
+}
 	
+.leftdiv {
+	background-color:#ffffff;
+	float:left;
+	margin-left:90px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
+	border-radius: 5px 5px 5px 5px ;
+	padding: 20px;
+}
+a.leftdiv {
+	font-size: medium;
+	font-family: sans-serif;
 }
 
 .centerdiv {
-	background-color: #d3d3d3;
+	padding: 20px;
 	width:450px;
 	height: 400px;
-	background: -moz-linear-gradient(270deg, #d3d3d3, rgb(254, 254, 254)) repeat scroll 0% 0% transparent;
+	background: -moz-linear-gradient(270deg, #E8E8E8, rgb(254, 254, 254)) repeat scroll 0% 0% transparent;
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
 	float:center;
 	margin-left: auto;
@@ -46,8 +76,8 @@ position:absolute;
 left:80px;
 top:0px;
 z-index:1;
-width:100px; 
-height:100px;
+width:80px; 
+height:80px;
 }
 
 

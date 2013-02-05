@@ -9,13 +9,13 @@
    
     <body>
        <?php
-      
-       include 'header.php';
+        require_once 'config.php';
+	include BASE_PATH .'/includes/header.php';
        ?>
         <div align="center" class="centerdiv" >
                         
              <h3 align="center">New User Registeration</h3>
-             <form method="post" action=registeration_success.php>
+             <form method="post" action="includes/registeration_success.php">
              <table align="center" >
              <tr>
              <td>User Name</td>
@@ -94,5 +94,6 @@
              
              </form>
         </div>
+</div>
     </body>
 </html>

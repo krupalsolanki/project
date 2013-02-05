@@ -8,11 +8,11 @@
 </head>
    
     <body>
-       <?php
-      
-       include 'header.php';
+<?php
+	require_once 'config.php';
+	include BASE_PATH .'/includes/header.php';
        ?>
-
+        <div class="" >
             <form method="post">
             <h1 align="center">Book Ticket</h1>
             <table align="center" cellpadding="5px">
@@ -118,6 +118,7 @@
             
             </table>
             </form>
-
+            </div>
+</div>
     </body>
 </html>

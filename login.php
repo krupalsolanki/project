@@ -9,11 +9,11 @@
    
     <body>
        <?php
-      
-       include 'header.php';
+	require_once 'config.php';
+	include BASE_PATH .'/includes/header.php';
        ?>
        
-<form action="includes/process.php" method="post">
+<form action="module/login/process.php" method="post">
 <table align="center">
 <tr>
 <td>Username</td>
@@ -41,6 +41,6 @@
 
 </table>
 </form>
-
+</div>
     </body>
 </html>
