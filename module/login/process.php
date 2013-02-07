@@ -20,5 +20,5 @@
             Header("Location: $address/home.php");
         }
         else
-        Header("Location: $address/home.php");
+        Header("Location: $address/login.php");
 ?>
