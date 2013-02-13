@@ -104,3 +104,9 @@ height:80px;
 	position: relative;
 	top: 1px;
 }
+.postinfo{
+	width: 550px;
+}
+.postinfo a{
+	float: right;
+}

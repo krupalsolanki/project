@@ -5,8 +5,10 @@
     </title>
     
   
-  <?php require_once '../../config.php';
-  echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$address/includes/stylesheet.css\" />";
+  <?php
+  
+  require_once '../../config.php';
+  include BASE_PATH.'/includes/css.php';
   ?>
 </head>
    
@@ -21,8 +23,7 @@
        ?>
         <div align="center" class="centerdiv" style="width: 1000px; ">
         <h2>You have been Logged Out..!!!</h2>
-        
-</div>
+        </div>
         </div>
     </body>
 </html>
