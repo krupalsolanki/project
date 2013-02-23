@@ -31,6 +31,7 @@ function setReadOnly()
     var scid=document.getElementById("sc_id");
     scid.readOnly="readonly";
 }
+
 function stateChanged()
 {
 if (xmlHttp.readyState==4)
@@ -55,9 +56,9 @@ if (xmlHttp==null)
   alert ("Your browser does not support AJAX!");
   return;
   }
+  
 //var url="prev_show_status.php";
 url=url+"&date="+str;
-
 
 xmlHttp.onreadystatechange=screenChanged;
 xmlHttp.open("GET",url,true);
@@ -108,7 +109,7 @@ return xmlHttp;
        require_once BASE_PATH.'/includes/connection.php';
        ?>
        
-       <div align="center" class="centerdiv" >    
+       <div align="center" class="centerdiv" style="height: auto">    
              <h3 align="center">Add Shows</h3>
             <form action="add_show_process.php" method="post" enctype="multipart/form-data" name="frmAjax" id="frmAjax">
             <table cellpadding="10" >
@@ -134,6 +135,7 @@ return xmlHttp;
                 <td>Select Multiplex</td>
                 <td>
                     <select name="mu_id" id="mu_id" onchange="selectmultiplex(this.value)">
+			<option selected="selected">Multiplex</option>
                     <?php
                         $query='select * from multiplex';
                         $result= mysql_query($query);   
