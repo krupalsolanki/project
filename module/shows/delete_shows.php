@@ -1,14 +1,19 @@
 <html>
 <head>
     <title>
-        Add Shows
+	Delete Shows
     </title>
     <?php
 	require_once '../../config.php';
 	include BASE_PATH.'/includes/css.php';
-    ?> 
+	echo "<script type=\"text/javascript\" src=\"$address/includes/DatePicker/tcal.js\"></script> ";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$address/includes/DatePicker/tcal.css\" /> ";
+	
+    ?>
+	
     <script language="javascript">
 var xmlHttp
+var count=0
 var url="prev_show_status.php"
 function selectmultiplex(str)
 {
@@ -28,8 +33,9 @@ xmlHttp.send(null);
 }
 function setReadOnly()
 {
-    var scid=document.getElementById("sc_id");
-    scid.readOnly="readonly";
+   
+    var dateSelect=document.getElementById("date_textfield")
+    dateSelect.readOnly="readonly";
 }
 
 function stateChanged()
@@ -56,9 +62,17 @@ if (xmlHttp==null)
   alert ("Your browser does not support AJAX!");
   return;
   }
+  count++;
+  if(count==2)
+  {
+    url=url+"&date="+str;
+    alert(url);
+  }
   
+  
+
 //var url="prev_show_status.php";
-url=url+"&date="+str;
+
 
 xmlHttp.onreadystatechange=screenChanged;
 xmlHttp.open("GET",url,true);
@@ -110,27 +124,10 @@ return xmlHttp;
        ?>
        
        <div align="center" class="centerdiv" style="height: auto">    
-             <h3 align="center">Add Shows</h3>
-            <form action="add_show_process.php" method="post" enctype="multipart/form-data" name="frmAjax" id="frmAjax">
+             <h3 align="center">Delete Shows</h3>
+            <form action="delete_show_process.php" method="post" enctype="multipart/form-data" name="frmAjax" id="frmAjax">
             <table cellpadding="10" >
-              <tr>
-                <td>
-                    Select Movie
-                </td>
-                <td>
-                    <select name="mo_id" id="movie">
-                    <?php
-                    $query = "SELECT * FROM movie ";
-                    $result = mysql_query($query);
-                    while($row = mysql_fetch_array($result))
-                    {
-                        echo "<option value=\"".$row['mo_id']."\">".$row['mo_name']."</option>";
-                    }
-                    ?>
-                </select>
-                </td>
-              </tr>
-              
+
               <tr>
                 <td>Select Multiplex</td>
                 <td>
@@ -163,47 +160,14 @@ return xmlHttp;
             <tr>
                 <td>Select Date</td>
                 <td>
-                    <div id="datediv" style="height: 23px;">
-                    <select name="sh_date" onchange='selectdate(this.value)'>
-                    <?php
-                    $one = mktime(0, 0, 0, date("m"), date("d")+1, date("y"));
-                    $two = mktime(0, 0, 0, date("m"), date("d")+2, date("y"));
-                    $three = mktime(0, 0, 0, date("m"), date("d")+3, date("y"));
-                    $four = mktime(0, 0, 0, date("m"), date("d")+4, date("y"));
-                    $five = mktime(0, 0, 0, date("m"), date("d")+5, date("y"));
-		    echo "<option selected=\"selected\">Select Date</option>";
-                    echo "<option value=\"".date("Y-m-d")."\">".date("d-m")."</option>";
-                    echo "<option value=\"".date("Y-m-d", $one)."\">".date("d-m", $one)."</option>";
-                    echo "<option value=\"".date("Y-m-d", $two)."\">".date("d-m", $two)."</option>";
-                    echo "<option value=\"".date("Y-m-d", $three)."\">".date("d-m", $three)."</option>";
-                    echo "<option value=\"".date("Y-m-d", $four)."\">".date("d-m", $four)."</option>";
-                    echo "<option value=\"".date("Y-m-d", $five)."\">".date("d-m", $five)."</option>";
-                    ?>
-                    </select>
-                    </div>
-                    
+		    <input id="date_textfield"type="text" name="date" class="tcal" value="" onBlur='selectdate(this.value)'/>
                 </td>
               </tr>
               
               <tr>
                 <td align="center" colspan="2"><div id="status"></div></td>
               </tr>
-	      <tr>
-		<td>Time : </td>
-		<td><input type="text" class="input" name="sh_time"</td>
-	      </tr>
-	      <tr>
-		<td>Screen ID :</td>
-		<td><input type="text" id='sc_id' name="sc_id" class="input" ></td>
-	      </tr>
-	      
-	      <tr>
-		<td colspan="2" align="center"><input type="submit" name="ok" id="okbtn" value="Add Show" class="button"/></td>
-	      </tr>
-            </table>
-	    
-	    
-             
+	    </table>
              </form>
        </div>
        </div>

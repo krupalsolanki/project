@@ -18,13 +18,17 @@
            {
                 echo "<table border=\"1\" cellpadding=\"5px\">";
                 echo "<tr>";
-                echo "<th>Movie</th><th>Duration</th><th>Show Time</th>";
+                echo "<th>Movie</th><th>Duration</th><th>Show Time</th><th></th><th></th>";
                 echo "</tr>";
                 
                 while($row = mysql_fetch_array($result))
                 {
                     echo "<tr>";
                     echo "<td>".$row['mo_name']."</td><td>".$row[mo_duration]."</td><td>".$row[sh_time]."</td>";
+		    
+		    echo "<td><a href=\"delete_shows_process.php?id=".$row[sh_id]."\">Delete</a></td>";
+		    echo "<td><a href=\"edit_show_details.php?id=".$row[sh_id]."\">Edit</a></br></td>";
+		
                     echo "</tr>";
                 }
                 echo "</table>";

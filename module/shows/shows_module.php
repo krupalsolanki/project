@@ -17,7 +17,7 @@
        ?>
         <div class="options" >
             <a href="add_shows.php" >Add Shows</a></br></br>
-            <a href="edit_shows.php" >Edit Shows</a>
+            <a href="delete_shows.php" >Edit Shows</a>
         </div>
         
 </div>

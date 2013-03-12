@@ -14,7 +14,7 @@ $string= BASE_PATH;
     }
     else
     {
-        $address=substr_replace("$string","http://localhost/",0,strlen($localhost_replace_string));
+        $address=substr_replace("$string","http://192.168.0.105/",0,strlen($localhost_replace_string));
         define ('main',$address . '/');
         
     }
