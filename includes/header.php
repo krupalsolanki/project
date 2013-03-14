@@ -14,7 +14,7 @@ echo "<img src=\"$address/images/multiplex_logo.jpg\" class=\"img\"/>";
 echo "<a class=\"ex2\" href=\"$address/home.php\" >Home</a>";
 echo "<a class=\"ex2\" href=\"$address/admin.php\">Admin</a>";
 echo "<a class=\"ex2\" href=#>About Us</a>";
-echo "<a class=\"ex2\" href=\"$address/booking.php\">Quick Book</a>";
+echo "<a class=\"ex2\" href=\"$address/module/booking/booking.php\">Quick Book</a>";
 
 
 session_start();

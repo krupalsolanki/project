@@ -4,10 +4,6 @@
         Welcome
     </title>
     <link rel="stylesheet" type="text/css" href="includes/stylesheet.css" />
-        <?php
-		//require_once 'includes/config.php';
-		//include	includespath . 'css.php';
-	?>
 </head>
    
     <body>

@@ -34,6 +34,12 @@
              <td><input type="text" class="input" name="mu_city" /></td>
              <td></td>
              </tr>
+				
+			 <tr>
+             <td>Area</td>
+             <td><input type="text" class="input" name="mu_area" /></td>
+             <td></td>
+             </tr>
              
              <tr>
              <td>Address</td>
