@@ -34,7 +34,7 @@
 <tr>
 <td></td>
 <td></td>
-<td><img src="images/movie-reel.jpg" align="right" height="200px"/>
+<td>
 </td>
 </tr>
 

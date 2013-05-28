@@ -21,7 +21,6 @@ if (xmlHttp==null)
 
 var url="select_screen.php";
 url=url+"?mu_id="+str;
-
 xmlHttp.onreadystatechange=stateChanged;
 xmlHttp.open("GET",url,true);
 xmlHttp.send(null);
@@ -59,7 +58,6 @@ if (xmlHttp==null)
   
 //var url="prev_show_status.php";
 url=url+"&date="+str;
-
 xmlHttp.onreadystatechange=screenChanged;
 xmlHttp.open("GET",url,true);
 xmlHttp.send(null);
@@ -190,7 +188,7 @@ return xmlHttp;
               </tr>
 	      <tr>
 		<td>Time : </td>
-		<td><input type="text" class="input" name="sh_time"</td>
+		<td><input type="text" class="input" name="sh_time" size="8">(24hr hh:mm)</td>
 	      </tr>
 	      <tr>
 		<td>Screen ID :</td>

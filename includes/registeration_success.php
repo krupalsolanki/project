@@ -33,6 +33,7 @@
            echo " <h1>Registeration Successfull </h1></br>\n";
            echo "<h2>Welcome $fname </h2>";
         echo "</div>";
+	
        ?>
 </div>     
     </body>

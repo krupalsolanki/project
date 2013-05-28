@@ -2,9 +2,10 @@
 
     <body>
         
-        <form action="book_show_process.php" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             <div>
-                Select Show Time : <select name="sh_time" id="sh_time">
+                  Select Show Time : <select name="sho_time" id="sho_time" onchange=selectedtime(this.value)>
+                <option selected="selected">select Show time</option>
                     <?php
                     require_once '../../config.php';
                     require_once BASE_PATH.'/includes/connection.php';
@@ -18,15 +19,33 @@
                     while($row = mysql_fetch_array($result))
                     {
                     
-                    $ticket_status = $row['sh_ticket_avail'];
-                    if($ticket_status < $numPeople)
-                    {
-                        echo "<option value=\"".$row['sh_id']."\">".$row['sh_time']." (Not Available)</option>";
-                    }
-                    else
-                    {
-                        echo "<option value=\"".$row['sh_id']."\">".$row['sh_time']." (Available)</option>";
-                    }
+                    $go_ticket_status = $row['sh_go_ticket_avail'];
+                    $pl_ticket_status = $row['sh_pl_ticket_avail'];
+                    
+                    echo "<option value=\"".$row['sh_id']."\">";
+                    if($go_ticket_status < $numPeople)
+                        {
+                            echo $row['sh_time']." Gold Seats (Not Available) ";
+                            
+                        }
+                        else
+                        {
+                            echo $row['sh_time']." Gold Seats (Available) ";
+                        }
+                        if($pl_ticket_status < $numPeople)
+                        {
+                            echo "| Platinum Seats (Not Available)";
+                            
+                        }
+                        else
+                        {
+                            echo "| Platinum Seats (Available)";
+                        }
+                        
+                    
+                    echo "</option>";
+                    
+                    
                     }
                     echo "</select>";
                     

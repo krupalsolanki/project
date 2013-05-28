@@ -37,7 +37,7 @@
              
              <tr>
              <td>Movie Duration</td>
-             <td><input type="text" class="input" name="mo_duration" /></td>
+             <td><input type="text" class="input" name="mo_duration" />(hh.mm)</td>
              <td></td>
              </tr>
              

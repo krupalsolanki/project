@@ -10,6 +10,14 @@
     ?>
     <script language="javascript">
 var xmlHttp
+function selectedtime(t)
+{
+    var url="book_ticket_process.php";
+    document.getElementById("show_id").value = t;
+var sh_id = document.getElementById("sho_time").value;
+url=url+"?sh_id="+sh_id;
+
+}
 function selectshow(str)
 {
 xmlHttp=GetXmlHttpObject();
@@ -19,22 +27,51 @@ if (xmlHttp==null)
   return;
   }
   
+  
 var url="select_sh_time.php";
-var numPeople = document.getElementById("numPeople").value
+var numPeople = document.getElementById("numPeople").value;
 url=url+"?date="+str+"&numPeople="+numPeople;
-
-xmlHttp.onreadystatechange=dateChanged;
+url=url+"&date="+str;
+alert(url);
+xmlHttp.onreadystatechange=screenChanged;
 xmlHttp.open("GET",url,true);
 xmlHttp.send(null);
 }
 
-function dateChanged()
+function screenChanged()
 {
 if (xmlHttp.readyState==4)
 {
-document.getElementById("sh_time").innerHTML=xmlHttp.responseText;
+document.getElementById("show_time").innerHTML=xmlHttp.responseText;
 }
 }
+
+
+//function selectshow(str)
+//{
+//xmlHttp=GetXmlHttpObject();
+//if (xmlHttp==null)
+//  {
+//  alert ("Your browser does not support AJAX!");
+//  return;
+//  }
+//  
+//var url="select_sh_time.php";
+//var numPeople = document.getElementById("numPeople").value;
+//url=url+"?date="+str+"&numPeople="+numPeople;
+//
+//xmlHttp.onreadystatechange=dateChanged;
+//xmlHttp.open("GET",url,true);
+//xmlHttp.send(null);
+//}
+//
+//function dateChanged()
+//{
+//if (xmlHttp.readyState==4)
+//{
+//document.getElementById("show_time").innerHTML=xmlHttp.responseText;
+//}
+//}
 
 
 function GetXmlHttpObject()
@@ -79,15 +116,16 @@ return xmlHttp;
                     {    
                     $movieImg=movieImgAddress($row['mo_image_location']);
                     }
-       ?>
        
-<form action="module/login/process.php" method="post">
+       
+echo "<form action=\"$address/module/booking/book_ticket_process.php\" method=\"post\">";
+?>
     <div id="menu" class="leftdiv">
     <?php echo "<img src=\"$movieImg\" />" ?> 
     </div>
 
 
-<div align="center" class="centerdiv" style="height: auto">
+<div align="center" class="centerdiv" style="height: auto; width: 550px">
     <h1>Book Tickets</h1>
 	
         <table align="center" cellpadding="10px">
@@ -106,12 +144,19 @@ return xmlHttp;
                     ?>
                     </select>
         </td></tr>
-        <tr><td><div name="sh_time" id="sh_time" style="height: 23px;">
-                    Select Show Time : <select name="show_time" >
+        <tr><td><div id="show_time" style=" margin-bottom: 20px;">
+                  Select Show Time : <select name="sho_time" onchange=selectedtime(this.value)>
                     <option>Select Date</option>
+		  
                     </select>
-                    </div></td></tr>
-        
+                    </div></td>
+	<td><input type="hidden" id='show_id' name="show_id" ></td></tr>
+        <tr>
+	    <td colspan="2" >Select Class :<input type="radio" name="bk_class" id="bk_class" value="gold"/>Gold (Rs. 110)
+             <input type="radio" name="bk_class" id="bk_class" value="platinum"  />Platinum (Rs. 200)
+	    </td>
+	    
+	</tr>
         <tr>
 		<td colspan="2" align="center"><input type="submit" name="ok" id="okbtn" value="Book Ticket" class="button"/></td>
 	      </tr>

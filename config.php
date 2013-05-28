@@ -4,7 +4,9 @@ $host="localhost";
 $user="krupal";
 $public_replace_string="/home/$user/public_html/";
 $localhost_replace_string="/var/www/";
+$multiplex_name="Multiplex Management System";
 $string= BASE_PATH;
+
 
     if (strpos($string,"public_html")==true)
     {
